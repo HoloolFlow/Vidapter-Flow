@@ -1,1 +1,64 @@
-{} 
+{
+  "welcomeBack": "Welcome Back",
+  "loginToAccount": "Login to your account",
+  "email": "Email",
+  "enterEmail": "Enter your email",
+  "password": "Password",
+  "enterPassword": "Enter your password",
+  "rememberMe": "Remember me",
+  "forgotPassword": "Forgot password?",
+  "login": "Login",
+  "dontHaveAccount": "Don't have an account?",
+  "signUp": "Sign Up",
+  "loginSuccess": "Login successful",
+  
+  "createAccount": "Create Account",
+  "joinNow": "Join now and start indexing your videos",
+  "fullName": "Full Name",
+  "enterFullName": "Enter your full name",
+  "confirmPassword": "Confirm Password",
+  "agreeToTerms": "I agree to the",
+  "termsAndConditions": "Terms and Conditions",
+  "signUpSuccess": "Account created successfully",
+  "alreadyHaveAccount": "Already have an account?",
+  
+  "dashboard": "Dashboard",
+  "myVideos": "My Videos",
+  "settings": "Settings",
+  "logout": "Logout",
+  "totalVideos": "Total Videos",
+  "totalChapters": "Total Chapters",
+  "recentActivity": "Recent Activity",
+  "last7Days": "Last 7 days",
+  "addNewVideo": "Add New Video",
+  "recentVideos": "Recent Videos",
+  "view": "View",
+  "noVideosYet": "No videos yet",
+  "addYourFirstVideo": "Add your first video",
+  
+  "hero": {
+    "title": "Index Your Videos Smartly",
+    "subtitle": "Turn your long videos into an organized, easy-to-navigate index"
+  },
+  "getStarted": "Get Started",
+  "watchDemo": "Watch Demo",
+  "features": {
+    "multiPlatform": {
+      "title": "Multi-Platform",
+      "desc": "Support all popular video platforms"
+    },
+    "indexing": {
+      "title": "Smart Indexing",
+      "desc": "Split your videos into easy-to-access chapters"
+    },
+    "private": {
+      "title": "Complete Privacy",
+      "desc": "Your data is private and yours only"
+    }
+  },
+  "cta": {
+    "title": "Start Free Today",
+    "subtitle": "No credit card required"
+  },
+  "startNow": "Start Free"
+}

@@ -1,1 +1,64 @@
-{} 
+{
+  "welcomeBack": "مرحباً بعودتك",
+  "loginToAccount": "سجل دخولك للوصول إلى حسابك",
+  "email": "البريد الإلكتروني",
+  "enterEmail": "أدخل بريدك الإلكتروني",
+  "password": "كلمة المرور",
+  "enterPassword": "أدخل كلمة المرور",
+  "rememberMe": "تذكرني",
+  "forgotPassword": "نسيت كلمة المرور؟",
+  "login": "تسجيل الدخول",
+  "dontHaveAccount": "ليس لديك حساب؟",
+  "signUp": "إنشاء حساب",
+  "loginSuccess": "تم تسجيل الدخول بنجاح",
+  
+  "createAccount": "إنشاء حساب جديد",
+  "joinNow": "انضم إلينا الآن وابدأ في فهرسة فيديوهاتك",
+  "fullName": "الاسم الكامل",
+  "enterFullName": "أدخل اسمك الكامل",
+  "confirmPassword": "تأكيد كلمة المرور",
+  "agreeToTerms": "أوافق على",
+  "termsAndConditions": "الشروط والأحكام",
+  "signUpSuccess": "تم إنشاء الحساب بنجاح",
+  "alreadyHaveAccount": "لديك حساب بالفعل؟",
+  
+  "dashboard": "لوحة التحكم",
+  "myVideos": "الفيديوهات",
+  "settings": "الإعدادات",
+  "logout": "تسجيل الخروج",
+  "totalVideos": "إجمالي الفيديوهات",
+  "totalChapters": "إجمالي المقاطع",
+  "recentActivity": "النشاط الأخير",
+  "last7Days": "آخر 7 أيام",
+  "addNewVideo": "إضافة فيديو جديد",
+  "recentVideos": "آخر الفيديوهات",
+  "view": "عرض",
+  "noVideosYet": "لا توجد فيديوهات بعد",
+  "addYourFirstVideo": "أضف أول فيديو لك",
+  
+  "hero": {
+    "title": "فهرس فيديوهاتك بطريقة ذكية",
+    "subtitle": "حول فيديوهاتك الطويلة إلى فهرس منظم وسهل التصفح"
+  },
+  "getStarted": "ابدأ الآن",
+  "watchDemo": "شاهد العرض",
+  "features": {
+    "multiPlatform": {
+      "title": "منصات متعددة",
+      "desc": "ادعم جميع منصات الفيديو الشهيرة"
+    },
+    "indexing": {
+      "title": "فهرسة ذكية",
+      "desc": "قسم فيديوهاتك إلى مقاطع سهلة الوصول"
+    },
+    "private": {
+      "title": "خصوصية تامة",
+      "desc": "بياناتك خاصة بك وحدك"
+    }
+  },
+  "cta": {
+    "title": "ابدأ الآن مجاناً",
+    "subtitle": "لا حاجة لبطاقة ائتمان"
+  },
+  "startNow": "ابدأ مجاناً"
+}
