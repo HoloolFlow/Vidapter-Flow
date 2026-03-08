@@ -47,8 +47,10 @@ function App() {
         <Route path="/login" element={!session ? <Login /> : <Navigate to="/dashboard" />} />
         <Route path="/signup" element={!session ? <SignUp /> : <Navigate to="/dashboard" />} />
         <Route path="/dashboard" element={session ? <Dashboard /> : <Navigate to="/login" />} />
+        <Route path="/settings" element={session ? <Settings /> : <Navigate to="/login" />} />        
+        <Route path="/videos" element={session ? <Videos /> : <Navigate to="/login" />} />
         <Route path="/video/:id" element={session ? <VideoIndex /> : <Navigate to="/login" />} />
-        <Route path="/settings" element={session ? <Settings /> : <Navigate to="/login" />} />
+        <Route path="/video/new" element={session ? <VideoIndex /> : <Navigate to="/login" />} />
       </Routes>
     </Router>
   )
