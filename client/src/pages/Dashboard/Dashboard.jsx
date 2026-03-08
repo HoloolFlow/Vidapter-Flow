@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import DashboardLayout from '../../components/Layout/DashboardLayout'
 import { supabase } from '../../services/supabase'
 import {
@@ -28,19 +28,16 @@ const Dashboard = () => {
     try {
       const { data: { user } } = await supabase.auth.getUser()
       
-      // Get total videos
       const { count: videoCount } = await supabase
         .from('videos')
         .select('*', { count: 'exact', head: true })
         .eq('user_id', user.id)
 
-      // Get total chapters
       const { count: chapterCount } = await supabase
         .from('video_chapters')
         .select('*', { count: 'exact', head: true })
         .eq('user_id', user.id)
 
-      // Get recent videos
       const { data: recentVideos } = await supabase
         .from('videos')
         .select('*')
@@ -65,29 +62,20 @@ const Dashboard = () => {
       title: t('totalVideos'),
       value: stats.totalVideos,
       icon: VideoCameraIcon,
-      color: 'bg-blue-500',
-      link: '/videos'
+      color: 'bg-blue-500'
     },
     {
       title: t('totalChapters'),
       value: stats.totalChapters,
       icon: BookmarkIcon,
-      color: 'bg-green-500',
-      link: '/videos'
-    },
-    {
-      title: t('recentActivity'),
-      value: t('last7Days'),
-      icon: ClockIcon,
-      color: 'bg-purple-500',
-      link: '#'
+      color: 'bg-green-500'
     }
   ]
 
   return (
     <DashboardLayout>
       <div className="space-y-6">
-        {/* Header */}
+        {/* 👇 التعديل هنا - إضافة عنوان الصفحة وزر الإضافة 👇 */}
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold text-gray-800">{t('dashboard')}</h1>
           <Link
@@ -98,9 +86,9 @@ const Dashboard = () => {
             <span>{t('addNewVideo')}</span>
           </Link>
         </div>
+        {/* 👆 انتهى التعديل 👆 */}
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {statCards.map((stat, index) => (
             <motion.div
               key={stat.title}
@@ -128,12 +116,10 @@ const Dashboard = () => {
           ))}
         </div>
 
-        {/* Recent Videos */}
         <div className="bg-white rounded-xl shadow-sm p-6">
           <h2 className="text-xl font-semibold mb-4">{t('recentVideos')}</h2>
           
           {loading ? (
-            // Skeleton loading
             <div className="space-y-3">
               {[1, 2, 3].map((i) => (
                 <div key={i} className="h-16 bg-gray-200 animate-pulse rounded"></div>

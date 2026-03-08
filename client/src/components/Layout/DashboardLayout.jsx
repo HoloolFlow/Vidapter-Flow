@@ -42,7 +42,7 @@ const DashboardLayout = ({ children }) => {
   ]
 
   return (
-    <div dir={isRTL ? 'rtl' : 'ltr'} className="min-h-screen bg-gray-50">
+    <div dir={isRTL ? 'rtl' : 'ltr'} className="min-h-screen bg-gray-50 flex">
       {/* Mobile sidebar backdrop */}
       {sidebarOpen && (
         <div
@@ -51,13 +51,13 @@ const DashboardLayout = ({ children }) => {
         />
       )}
 
-      {/* Sidebar */}
-      <motion.aside
-        initial={{ x: isRTL ? 300 : -300 }}
-        animate={{ x: sidebarOpen ? 0 : isRTL ? 300 : -300 }}
-        transition={{ type: 'tween' }}
-        className={`fixed top-0 ${isRTL ? 'right-0' : 'left-0'} h-full w-64 bg-white shadow-lg z-30 lg:translate-x-0 lg:static lg:z-0`}
-      >
+      {/* Sidebar - visible on desktop always, on mobile when open */}
+      <aside className={`
+        fixed lg:static inset-y-0 ${isRTL ? 'right-0' : 'left-0'} 
+        w-64 bg-white shadow-lg z-30 transform transition-transform duration-300
+        ${sidebarOpen ? 'translate-x-0' : (isRTL ? 'translate-x-full' : '-translate-x-full')}
+        lg:translate-x-0 lg:shadow-md
+      `}>
         {/* Logo */}
         <div className="p-6 border-b">
           <h1 className="text-2xl font-bold text-blue-600">VideoIndexer</h1>
@@ -104,10 +104,10 @@ const DashboardLayout = ({ children }) => {
             <span>{t('logout')}</span>
           </button>
         </nav>
-      </motion.aside>
+      </aside>
 
-      {/* Main content */}
-      <div className="lg:mr-0 lg:ml-0" style={{ marginRight: isRTL ? '16rem' : 0, marginLeft: !isRTL ? '16rem' : 0 }}>
+      {/* Main content - takes remaining width */}
+      <div className="flex-1 min-w-0">
         {/* Header */}
         <header className="bg-white shadow-sm sticky top-0 z-10">
           <div className="flex items-center justify-between p-4">
