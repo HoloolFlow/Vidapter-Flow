@@ -13,6 +13,7 @@ import Videos from './pages/Videos/Videos'
 import VideoForm from './pages/Videos/VideoForm'
 import VideoIndex from './pages/VideoIndex/VideoIndex'
 import Settings from './pages/Settings/Settings'
+import EmailConfirmed from './pages/Auth/EmailConfirmed'
 
 function App() {
   const [session, setSession] = useState(null)
