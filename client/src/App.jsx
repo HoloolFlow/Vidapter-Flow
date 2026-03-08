@@ -4,12 +4,11 @@ import { supabase } from './services/supabase'
 import { Toaster } from 'react-hot-toast'
 import './i18n/config'
 
-// صفحات
+// استيراد الصفحات
 import Landing from './pages/Landing/Landing'
 import Login from './pages/Auth/Login'
 import SignUp from './pages/Auth/SignUp'
 import Dashboard from './pages/Dashboard/Dashboard'
-import VideoIndex from './pages/VideoIndex/VideoIndex'
 import Settings from './pages/Settings/Settings'
 
 function App() {
@@ -43,14 +42,17 @@ function App() {
     <Router>
       <Toaster position="top-center" />
       <Routes>
+        {/* المسارات العامة - متاحة للجميع */}
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={!session ? <Login /> : <Navigate to="/dashboard" />} />
         <Route path="/signup" element={!session ? <SignUp /> : <Navigate to="/dashboard" />} />
+        
+        {/* المسارات المحمية - تحتاج تسجيل دخول */}
         <Route path="/dashboard" element={session ? <Dashboard /> : <Navigate to="/login" />} />
-        <Route path="/settings" element={session ? <Settings /> : <Navigate to="/login" />} />        
-        <Route path="/videos" element={session ? <Videos /> : <Navigate to="/login" />} />
-        <Route path="/video/:id" element={session ? <VideoIndex /> : <Navigate to="/login" />} />
-        <Route path="/video/new" element={session ? <VideoIndex /> : <Navigate to="/login" />} />
+        <Route path="/settings" element={session ? <Settings /> : <Navigate to="/login" />} />
+        
+        {/* مسار افتراضي لأي صفحة غير موجودة */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   )
