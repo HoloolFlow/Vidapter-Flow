@@ -24,6 +24,7 @@ const SignUp = () => {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [isEmailSent, setIsEmailSent] = useState(false)
+  const [userEmail, setUserEmail] = useState('')
   const isRTL = i18n.language === 'ar'
 
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -40,14 +41,13 @@ const SignUp = () => {
           data: {
             full_name: data.fullName
           },
-          // مهم: تحديد رابط التفعيل الصحيح
-          emailRedirectTo: 'https://vidapterflow.vercel.app'
+          emailRedirectTo: 'https://vidapterflow.vercel.app/auth/confirm'
         }
       })
 
       if (error) throw error
 
-      // عرض رسالة نجاح مع تعليمات تفعيل الحساب
+      setUserEmail(data.email)
       setIsEmailSent(true)
       toast.success(t('verificationEmailSent'))
       
@@ -58,7 +58,22 @@ const SignUp = () => {
     }
   }
 
-  // إذا تم إرسال الإيميل، نعرض رسالة التفعيل
+  const resendVerificationEmail = async () => {
+    try {
+      const { error } = await supabase.auth.resend({
+        type: 'signup',
+        email: userEmail,
+        options: {
+          emailRedirectTo: 'https://vidapterflow.vercel.app/auth/confirm'
+        }
+      })
+      if (error) throw error
+      toast.success('تم إعادة إرسال رابط التفعيل')
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
   if (isEmailSent) {
     return (
       <div dir={isRTL ? 'rtl' : 'ltr'} className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
@@ -99,10 +114,7 @@ const SignUp = () => {
           <p className="text-sm text-gray-500 mt-4">
             {t('didntReceiveEmail')}{' '}
             <button
-              onClick={() => {
-                setIsEmailSent(false)
-                // يمكن إضافة إعادة إرسال الإيميل هنا
-              }}
+              onClick={resendVerificationEmail}
               className="text-blue-600 hover:text-blue-800"
             >
               {t('tryAgain')}
@@ -120,7 +132,6 @@ const SignUp = () => {
         animate={{ opacity: 1, y: 0 }}
         className="bg-white rounded-2xl shadow-xl w-full max-w-md p-8"
       >
-        {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800 mb-2">
             {t('createAccount')}
@@ -130,9 +141,7 @@ const SignUp = () => {
           </p>
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          {/* Full Name */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               {t('fullName')}
@@ -151,7 +160,6 @@ const SignUp = () => {
             )}
           </div>
 
-          {/* Email */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               {t('email')}
@@ -170,7 +178,6 @@ const SignUp = () => {
             )}
           </div>
 
-          {/* Password */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               {t('password')}
@@ -189,7 +196,6 @@ const SignUp = () => {
             )}
           </div>
 
-          {/* Confirm Password */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               {t('confirmPassword')}
@@ -208,7 +214,6 @@ const SignUp = () => {
             )}
           </div>
 
-          {/* Terms */}
           <div className="flex items-center">
             <input
               type="checkbox"
@@ -223,7 +228,6 @@ const SignUp = () => {
             </span>
           </div>
 
-          {/* Submit button */}
           <button
             type="submit"
             disabled={loading}
@@ -240,7 +244,6 @@ const SignUp = () => {
           </button>
         </form>
 
-        {/* Login link */}
         <p className="text-center mt-6 text-gray-600">
           {t('alreadyHaveAccount')}{' '}
           <Link to="/login" className="text-blue-600 hover:text-blue-800 font-semibold">
