@@ -21,6 +21,19 @@
   "termsAndConditions": "الشروط والأحكام",
   "signUpSuccess": "تم إنشاء الحساب بنجاح",
   "alreadyHaveAccount": "لديك حساب بالفعل؟",
+
+  "verificationEmailSent": "تم إرسال رابط التفعيل إلى بريدك الإلكتروني",
+  "checkYourEmail": "تفقد بريدك الإلكتروني",
+  "verificationEmailSent_desc": "لقد أرسلنا رابط التفعيل إلى بريدك الإلكتروني. الرجاء تفقد بريدك واضغط على الرابط لتفعيل حسابك.",
+  "goToLogin": "الذهاب لتسجيل الدخول",
+  "didntReceiveEmail": "لم تستلم البريد؟",
+  "tryAgain": "حاول مرة أخرى",
+  "confirmingEmail": "جاري تأكيد البريد الإلكتروني...",
+  "pleaseWait": "الرجاء الانتظار",
+  "emailConfirmed": "تم تأكيد البريد الإلكتروني!",
+  "redirectingToLogin": "جاري تحويلك إلى صفحة تسجيل الدخول...",
+  "confirmationFailed": "فشل تأكيد البريد الإلكتروني",
+  
   
   "dashboard": "لوحة التحكم",
   "myVideos": "الفيديوهات",

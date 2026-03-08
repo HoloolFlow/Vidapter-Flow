@@ -57,6 +57,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={!session ? <Login /> : <Navigate to="/dashboard" />} />
         <Route path="/signup" element={!session ? <SignUp /> : <Navigate to="/dashboard" />} />
+        <Route path="/auth/confirm" element={<EmailConfirmed />} />
         
         {/* Protected Routes */}
         <Route path="/dashboard" element={session ? <Dashboard /> : <Navigate to="/login" />} />

@@ -21,6 +21,19 @@
   "termsAndConditions": "Terms and Conditions",
   "signUpSuccess": "Account created successfully",
   "alreadyHaveAccount": "Already have an account?",
+
+  "verificationEmailSent": "Verification email sent",
+  "checkYourEmail": "Check Your Email",
+  "verificationEmailSent_desc": "We've sent a verification link to your email. Please check your email and click the link to activate your account.",
+  "goToLogin": "Go to Login",
+  "didntReceiveEmail": "Didn't receive the email?",
+  "tryAgain": "Try Again",
+  "confirmingEmail": "Confirming email...",
+  "pleaseWait": "Please wait",
+  "emailConfirmed": "Email Confirmed!",
+  "redirectingToLogin": "Redirecting to login...",
+  "confirmationFailed": "Email Confirmation Failed",
+
   
   "dashboard": "Dashboard",
   "myVideos": "My Videos",
